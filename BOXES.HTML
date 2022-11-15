@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <Style>
+    .container{
+           margin-left: 350px;
+          margin-top:150px;
+        }
+    #red{
+        width: 200px;
+        height: 200px;
+        background-color:red;
+    }
+    #yellow{
+        width: 200px;
+        height: 200px;
+        background-color:yellow;
+    }
+    #green{
+        width: 200px;
+        height: 200px;
+        background-color:green;
+    }
+    #removetext{
+        margin-left: 350px;
+        margin-top: 50px;
+    }
+
+    </Style> 
+</head>
+<body>
+<div class="container">
+  <button class="boxes"  id="red">STOP</button>
+  <button class="boxes" id="yellow">WAIT</button>
+  <button class="boxes" id="green">GO</button>
+</div>
+<div id="removetext">
+     <button>REMOVE</button></div>
+     <script>
+        const buttons= document.querySelectorAll('.boxes')
+        let timesClicked= {'red':0,'yellow':0,'green':0}
+        buttons.forEach(button =>{
+            button.onclick=()=>{
+                timesClicked [button.id] +=1
+                button.innerText = timesClicked[button.id]
+            }
+        })
+        function clearScores(){
+            timesClicked.red=0
+            timesClicked.yellow=0
+            timesClicked.green=0
+            buttons.forEach(button=>{
+                button.innerText=''
+            })
+        }
+        const clearGameBtn = document.getElementById('removetext')
+        clearGameBtn.onclick = () =>
+        clearScores()
+     </script>
+</body>
+</html>
